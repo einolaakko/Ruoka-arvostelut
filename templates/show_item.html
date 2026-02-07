@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>{{ item.title }}</title>
+</head>
+
+<body>
+  <h1>{{ item.title }}</h1>
+  {% if session.user_id == item user_id %}
+  <p>
+    <a href="/edit_item/{{ item.id }}">Muokkaa</a>
+  </p>
+  {% endif %}
+  <p>
+    {{ item.description}}
+  </p>
+  <p>
+    Tähtiä 1-5: {{ item.tandet }}
+  </p>
+  <p>
+    Ensimmäinen arvostelija {{ item.username }}
+  </p>
+  <p>
+    <a href="/">Etusivu</a>
+  </p>
+</body>
+
+</html>
