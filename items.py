@@ -1,13 +1,19 @@
 import db
 
-def add_item(title, description, tähdet, user_id):
-    sql = """INSER INTO items (title, description, Tähdet1-5, user_id) VALUES(?,?,?,?)"""
-    db.execute(sql, [title,description, tähdet, user_id])
+def add_item(title, description, tahdet, user_id):
+    sql = "INSERT INTO items (title, description, tahdet, user_id) VALUES (?, ?, ?, ?)"  # Fixed typo INSER -> INSERT, column name
+    db.execute(sql, [title, description, tahdet, user_id])
 
 def get_items():
     sql = "SELECT id, title FROM items ORDER BY id DESC"
     return db.query(sql)
 
-def get_items(item_id):
-    sql = """SELECT items.id, items.title, items.description, items.tähdet, users.id user_id, users.username FROM items, users WHERE items.user_id = users.id AND items.id = ?"""
-    return db.query(sql, [item_id])[0]
+def get_item(item_id):  # Changed function name from get_items to get_item
+    sql = """SELECT items.id, items.title, items.description, items.tahdet,
+             users.id user_id, users.username
+             FROM items, users
+             WHERE items.user_id = users.id AND items.id = ?"""
+    result = db.query(sql, [item_id])
+    if result:
+        return result[0]
+    return None
