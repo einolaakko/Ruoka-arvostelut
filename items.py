@@ -1,14 +1,14 @@
 import db
 
 def add_item(title, description, tahdet, user_id):
-    sql = "INSERT INTO items (title, description, tahdet, user_id) VALUES (?, ?, ?, ?)"  # Fixed typo INSER -> INSERT, column name
+    sql = "INSERT INTO items (title, description, tahdet, user_id) VALUES (?, ?, ?, ?)"
     db.execute(sql, [title, description, tahdet, user_id])
 
 def get_items():
     sql = "SELECT id, title FROM items ORDER BY id DESC"
     return db.query(sql)
 
-def get_item(item_id):  # Changed function name from get_items to get_item
+def get_item(item_id):
     sql = """SELECT items.id, items.title, items.description, items.tahdet,
              users.id user_id, users.username
              FROM items, users
