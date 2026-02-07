@@ -1,0 +1,13 @@
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    username TEXT UNIQUE,
+    pasword_hash TEXT
+)
+
+CREATE TABLE item (
+    id INTEGER PRIMARY KEY,
+    title TEXT,
+    description TEXT,
+    Tähdet_1-5 INTEGER,
+    user_id INTEGER REFERENCE users
+)
