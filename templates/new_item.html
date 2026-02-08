@@ -17,6 +17,7 @@
       Arvostelu: <br />
       <input type="text" name="tahdet">
     </p>
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}"/>
     <input type="submit" value="Luo_Arvostelu" />
   </form>
 
