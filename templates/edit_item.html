@@ -6,9 +6,12 @@
 
 <body>
   <form action="/update_item" method="post">
+  <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+  <input type="hidden" name="it_id" value="{{ item.id }}">
+
     <p>
       Otsikko: <br />
-      <input type="text" name="title" >
+      <input type="text" name="title" value="{{ item.title }}">
     </p>
     <p>
       Kuvaus: <br />
@@ -17,7 +20,7 @@
       Arvostelu: <br />
       <input type="text" name="tahdet">
     </p>
-    <input type="submit" value="Luo_Arvostelu" />
+    <input type="submit" value="Päivitä" />
   </form>
 
 </body>
