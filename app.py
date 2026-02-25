@@ -116,7 +116,11 @@ def update_item():
     if not description or len(description) > 1000:
         abort(403)
 
-    items.update_item(item_id, title, description)
+    tahdet = request.form["tahdet"]
+    if not re.search("^[1-5]$", tahdet):
+        abort(403)
+
+    items.update_item(item_id, title, description, tahdet)
 
     return redirect("/item/" + str(item_id))
 

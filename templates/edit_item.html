@@ -7,7 +7,7 @@
 <body>
   <form action="/update_item" method="post">
   <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-  <input type="hidden" name="it_id" value="{{ item.id }}">
+  <input type="hidden" name="item_id" value="{{ item.id }}">
 
     <p>
       Otsikko: <br />
@@ -15,10 +15,10 @@
     </p>
     <p>
       Kuvaus: <br />
-      <textarea name="description" rows="8" cols="40"></textarea>
+      <textarea name="description" rows="8" cols="40"> {{ item.description }} </textarea>
     </p>
       Arvostelu: <br />
-      <input type="text" name="tahdet">
+      <input type="text" name="tahdet" value="{{ item.tahdet  }}">
     </p>
     <input type="submit" value="Päivitä" />
   </form>

@@ -17,3 +17,11 @@ def get_item(item_id):
     if result:
         return result[0]
     return None
+
+def update_item(item_id, title, description, tahdet):
+    sql = """UPDATE items SET title = ?, description = ?, tahdet = ? WHERE id = ?"""
+    return db.execute(sql, [title, description, tahdet, item_id])
+
+
+
+
